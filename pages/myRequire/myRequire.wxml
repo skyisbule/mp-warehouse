@@ -1,0 +1,16 @@
+<!--pages/myRequire/myRequire.wxml-->
+ <view class='main' wx:for='{{requireArray}}' bindtap="listClick" id="{{item.rid}}" data-post-id="{{item.openId}}">
+    <view class='mainpadding'><view class='maintip'></view><text class='maintitle'>{{item.title}}</text></view>
+    <text class='mainword mainleft'>货品：{{item.purpose}} \n</text>
+    <view class='mainupborder'></view>
+    <view class=' mainmargin1 '>
+       <button class='mainbutton mainmargin'>{{item.phoneCall}}</button>
+    </view>
+    <view class='place'></view>
+  </view>
+
+  <view class = 'more'>
+    <text bindtap = 'loadPage' wx:if='{{moreDataFlag}}'>----加载更多----</text>
+    <text bindtap = 'loadPage' wx:if='{{!moreDataFlag}}'>----加载完成----</text>
+  </view>
+

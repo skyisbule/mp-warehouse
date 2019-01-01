@@ -1,0 +1,45 @@
+<!--pages/needDetail/needDetail.wxml-->
+<view class='top'>
+  <view class='leftarea'>
+    <image src='{{headPic}}' class='leftImage'></image>
+  </view>
+  <view class='rightarea'>
+    <text class='topTitle'>{{realName}} \n</text>
+    <text class='topText'>⭐客户经理</text>
+  </view>
+</view>
+<view class='centerArea'>
+  <text class='centerType'>需要区域：</text><text class='centerContent' wx:for="{{locates}}">{{item}}\n</text>
+  <text class='centerType'>需求面积：</text><text class='centerContent'>{{area}}  \n</text>
+  <text class='centerType'>用途：</text><text class='centerContent'>{{purpose}} \n</text>
+</view>
+<view style='height:180rpx;border-bottom: 1px solid #bfbfbf;'>
+  <view class='tipArea' >
+    <text class='maintitle'>| 基本要求  \n</text>
+    <text class='tipType'>{{fireControlRequire}}</text>
+    <text class='tipType'>{{floorRequire}}</text>
+    <text class='tipType'>{{platformRequire}}</text>
+  </view>
+</view> 
+<view  style='padding:20rpx 30rpx'>
+  <text class='maintitle'>| 备注</text>
+  <view style='color:#999;font-size:30rpx;padding:20rpx 0rpx;word-wrap: break-word;word-break: normal;'>{{remark}}</view>
+</view>
+    <poster id="poster" hide-loading="{{false}}" preload="{{false}}" config="{{jdConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+    <button class='QrcodeType' >生成海报✈</button>
+   </poster> 
+
+<view>
+<button bindtap='backToIndex' class='backToIndex' >返回首页</button> 
+<button bindtap='toEdit'     wx:if="{{isAdmin}}">编辑</button>
+<button bindtap='setPass'    wx:if="{{isAdmin}}">上架</button>
+<button bindtap='setNotPass' wx:if="{{isAdmin}}">下架</button>
+</view>
+
+
+<view class='bottomArea'>
+       <button open-type='share' hover-class='none'  style="border-radius:50rpx;font-size:26rpx;margin:16rpx 24rpx;float:left;height:64rpx;width:70rpx;">转发
+    </button>
+    <button class='btnType' bindtap="phoneCall" data-getPhone='{{telNum}}'>联系电话：{{telNum}}</button>
+</view>
+ 

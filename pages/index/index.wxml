@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container">
+
+    <view class="inputView">
+      <picker mode="region" bindchange='bindRegionChange'  custom-item="{{customItem}}" >
+        <text class='inputText' wx:if="{{ region[1] == region[2] }}">选择城市：{{region[1]}}</text>
+        <text class='inputText' wx:if="{{ region[1] != region[2] }}">选择城市：{{region[1]}} {{region[2]}}</text>
+      </picker>
+      <text bindtap='doReflush'>刷新</text>
+      <text class="casualSelected" bindtap='toCitySelected'>常用城市选择</text>
+    </view> 
+
+  <view class='examView' >
+    <view class='examshadow' bindtap='toRequire'></view>
+    <image class='examImage' src='/images/index/warehouse.jpg' ></image>
+    <view class='examText'>{{city}}共<text class='examcotip'> {{requireCount}} </text>个需求<text>\n 正在找仓</text> </view>
+    <view ><button class='examButton' bindtap='toUploadRequire'>发布需求</button></view>
+  </view> 
+  <view class='place'></view>
+  <view class='examView' >
+    <view class='examshadow' bindtap='toWarehouse'></view>
+    <image class='examImage' src='/images/index/warehouse.jpg'></image>
+    <view class='examText'>{{city}}共<text class='examcotip' > {{warehouseCount}} </text>个仓库<text>\n 正在出租</text> </view>
+    <view ><button class='examButton' bindtap='toUploadWarehouse'>发布仓库</button></view>
+  </view> 
+</view>

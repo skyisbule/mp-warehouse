@@ -1,0 +1,36 @@
+<!--pages/mine/mine.wxml-->
+<view class='main' >
+    
+    <view class='mainpadding' bindtap='toMyWarehouse'>
+      <view class='maintip'></view><text class='maintitle'>我发布的仓库</text>
+      <button class='mainbutton fr'>查看所有</button>
+    </view>
+    <view class='place' ></view>
+
+    <view class='mainpadding' bindtap='toMyRequire'>
+      <view class='maintip'></view><text class='maintitle'>我发布的需求</text>
+      <button class='mainbutton fr'>查看所有</button>
+    </view>
+    <view class='place'></view>
+
+    <view class='mainpadding' bindtap='toChangeShop'>
+      <view class='maintip'></view><text class='maintitle'>切换店铺</text>
+      <button class='mainbutton fr'>点击切换</button>
+    </view>
+    <view class='place'></view>
+
+    <view class='mainpadding'bindtap='doCollect'>
+      <view class='maintip'></view><text class='maintitle'>收藏此店铺</text>
+      <button class='mainbutton fr'>点此收藏</button>
+    </view>
+    <view class='place' ></view>
+
+    <view class='mainpadding'bindtap='doOpenUp'>
+      <view class='maintip'></view><text class='maintitle'>我也要开启自己的店铺</text>
+      <button class='mainbutton fr'>开启！</button>
+    </view>
+    <view class='place' ></view>
+
+</view>
+
+

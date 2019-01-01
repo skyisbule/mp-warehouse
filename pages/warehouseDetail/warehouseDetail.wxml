@@ -1,0 +1,46 @@
+<!--pages/warehouseDetail/warehouseDetail.wxml-->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">        
+  <block wx:for="{{pictureArray}}" wx:for-index="index">          
+    <swiper-item>            
+      <image src="{{item.url}}" class="slide-image" mode="" style="background:cover"/>          
+    </swiper-item>        
+  </block>      
+</swiper> 
+<view class='mainpadding'>
+  <view class='maintip'></view><text class='maintitle'>{{title}}</text>
+</view>
+<view class='loudong' wx:for='{{units}}'>
+  <text class='louceng'>{{item.floor}}</text>  <text class='daxiao'>{{item.area}}平方米</text>  <text class='jiage'>{{item.price}}元/月</text>
+</view>
+<view class='place'></view>
+<view class='mainpadding'>
+  <view class='maintip'></view><text class='maintitle'>配套服务</text>
+  <view style="padding-left:20rpx;">
+    <view >
+      <text style='color:#1296db;font-size:26rpx;padding-left:10rpx' wx:for='{{advantageArray}}'>{{item}}</text>
+    </view>
+    <view>
+      <text class='tipType' wx:for='{{parkServiceArray}}'>{{item}}</text>
+    </view>
+  </view>
+</view>
+<view class='place'></view>
+<view class='mainpadding ' style='margin-bottom:80rpx;'>
+  <view class='maintip'></view><text class='maintitle'>推荐理由</text>
+  <view style='color:#999;font-size:32rpx;padding:100rpx 20rpx;word-wrap: break-word;word-break: normal;'>{{remark}}</view>
+  <poster id="poster" hide-loading="{{false}}" preload="{{false}}" config="{{jdConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+    <button class='QrcodeType' >生成海报✈</button>
+   </poster> 
+   <button bindtap='toEdit' class='QrcodeType'     wx:if="{{isAdmin}}">编辑</button> 
+   <button bindtap='setPass' class='QrcodeType'    wx:if="{{isAdmin}}">上架</button> 
+   <button bindtap='setNotPass' class='QrcodeType' wx:if="{{isAdmin}}">下架</button> 
+</view>
+
+<view class='bottomArea'>
+    <button open-type='share' hover-class='none'  style="border-radius:50rpx;font-size:26rpx;margin:16rpx 24rpx;float:left;height:64rpx;width:70rpx;">转发
+    </button>
+    <button class='btnType' bindtap="phoneCall" data-getPhone='{{telNum}}'>{{phoneCall}}</button>
+</view>
+
+
+

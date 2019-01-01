@@ -1,0 +1,70 @@
+/* pages/warehouse/warehouse.wxss */
+pages{
+  width: 750rpx;
+  background: #fff;
+}
+
+.headtitle{
+  text-align: center;
+  font-weight: 800;
+  font-size: 40rpx;
+  color: #262626;
+} 
+/* color being stress */
+.stresscolor{
+  color: #1296db
+}
+.margintitle{
+  margin: 20rpx;
+}
+
+.wareTable{
+  width: 100%;
+  border-bottom:1rpx solid #bfbfbf; 
+  padding-bottom:12rpx;  
+}      
+.leftTable{
+  width: 30%;
+  float: left;
+  padding: 0.5rem 0.6rem
+}
+.leftImage{
+  width: 95%;
+  height:130rpx;
+}
+.rightTable{
+  width: 70%;
+}
+.warehouseTitle{
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333
+}
+.warehouseNormal{
+  color: #333;
+  font-size: 28rpx
+}
+.warehouseDate{
+  color: #bfbfbf;
+  font-size: 24rpx;
+}
+.warehouseTip{
+  background-color: #e7ecf9;
+  color: #4368d1;
+  font-size: 26rpx;
+  padding:4rpx; 
+}
+.borderDotted{
+  border-bottom:1rpx dotted #bfbfbf; 
+  margin-left: 50%;
+  width: 100%;
+}
+.fr{
+  float: right;
+}
+.more{
+  text-align: center;
+  color: #bfbfbf;
+  font-size: 30rpx;
+  padding: 14rpx;
+}

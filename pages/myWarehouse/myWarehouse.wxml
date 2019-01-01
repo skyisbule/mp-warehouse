@@ -1,0 +1,16 @@
+<!--pages/myWarehouse/myWarehouse.wxml-->
+<view class='wareTable' wx:for = '{{warehouseArray}}' bindtap="listClick" data-wid="{{item.wid}}" data-open="{{item.openId}}">
+  <view class='leftTable'>
+    <image src='{{item.picture}}' class='leftImage'></image>
+  </view>
+  <view class='rightTable'>
+    <text class='warehouseTitle'>{{item.locate}}库  \n</text>
+    <text class='warehouseNormal'>总空置：{{item.area}}  \n</text>
+    <text class='warehouseNormal'>价格：{{item.price}}元/天  \n</text>
+    <text class='warehouseDate'>更新日期：{{item.date}}</text>
+  </view>
+</view>
+<view class = 'more'>
+  <text bindtap = 'loadPage' wx:if='{{moreDataFlag}}'>----加载更多----</text>
+  <text bindtap = 'loadPage' wx:if='{{!moreDataFlag}}'>----加载完成----</text>
+</view>

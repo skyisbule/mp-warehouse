@@ -1,0 +1,71 @@
+<!--pages/needUpload/needUpload.wxml-->
+<view class="headTitle">发布您的需求</view>
+<form bindsubmit="formSubmit">
+<view wx:for = '{{cityArray}}'>
+  <view class="inputView">           
+    <label class="inputLab">仓库/厂房的区域</label>
+     <picker mode="region" bindchange='bindRegionChange' data-cid="{{item.cid}}" >
+      <input  class="inputText" style='margin-top:-75rpx;' placeholder="请选择城市" name='locates' value='{{item.region[0]}} {{item.region[1]}} {{item.region[2]}}'  data-cid="{{item.cid}}" disabled='disabled'/>    
+     </picker> 
+  </view>
+</view>
+
+<view style='color:#1296db;text-align:center;font-size:26rpx;' bindtap = "addCity" wx:if = '{{showAddButton}}'>+ 新增一个区域</view>
+ <view class="inputView">           
+  <label class="inputLab">需求面积</label>      
+  <input class="inputText"  placeholder="请输入面积（平方米）" name='area' value="{{area}}"/>   
+ </view>
+ <view class="inputView">           
+  <label class="inputLab">用途-存放货物</label>      
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange2" bindcolumnchange="bindMultiPickerColumnChange2" value="{{multiIndex2}}" range="{{objectMultiArray}}" range-key="{{'name'}}" > 
+    <input class="inputText" style='margin-top:-70rpx;'  placeholder="请选择用途" value="{{objectMultiArray[0][multiIndex2[0]].name}}{{objectMultiArray[1][multiIndex2[1]].name}}" name='purpose' disabled='disabled'/>   
+  </picker>  
+ </view>
+ <view class="inputView">           
+  <label class="inputLab">消防设施要求</label>
+  <picker mode="selector" range="{{facilityArray}}" value="{{facilityIndex}}" bindchange="facilityPickerSelected">
+    <input name='fireControlRequire' class="inputText" style='margin-top:-70rpx;'  placeholder="请选择消防要求" value="{{facilityArray[facilityIndex]}}" disabled='disabled'/>   
+  </picker>      
+ </view>
+ <view class="inputView">           
+  <label class="inputLab">月台要求</label>      
+   <picker mode="selector" range="{{platformArray}}" value="{{platformIndex}}" bindchange="platformPickerSelected">
+    <input name='platformRequire' class="inputText" style='margin-top:-70rpx;'  placeholder="请选择月台要求" value="{{platformArray[platformIndex]}}" disabled='disabled'/>   
+  </picker>   
+ </view>
+ <view class="inputView">
+  <label class="inputLab">楼层要求</label>            
+  <picker mode="selector" range="{{floorArray}}" value="{{floorIndex}}" bindchange="floorPickerSelected">
+    <input name='floorRequire' class="inputText" style='margin-top:-70rpx;'  placeholder="请选择楼层要求" value="{{floorArray[floorIndex]}}" disabled='disabled'/>   
+  </picker>   
+ </view>
+ <view class="inputView">           
+  <label class="inputLab">需求时间</label>      
+  <picker mode="date" value="{{date}}" start="2018-01-01" end="2040-1-23" bindchange="bindDateChange">  
+    <input name='requireTime' class="inputText" style='margin-top:-70rpx;' value='{{dates}}'  placeholder="" disabled='disabled'/>  
+  </picker>  
+ </view>
+ <view class="inputView"> 
+    <label class="inputLab">租期</label>            
+  <picker mode="selector" range="{{leaseArray}}" value="{{leaseIndex}}" bindchange="leasePickerSelected">
+    <input name='leaseTerm' class="inputText" style='margin-top:-70rpx;'  placeholder="请选择租期" value="{{leaseArray[leaseIndex]}}" disabled='disabled'/>   
+  </picker>   
+ </view>
+ <view class="inputView">           
+  <label class="inputLab">最高价格</label>      
+  <input name='maxPrice' class="inputText"  placeholder="请输入价格元/月/平方米" value="{{priceData}}"/>   
+ </view>
+ <view class="inputView" style='margin-bottom:100rpx;'>           
+  <label class="inputLab">备注</label>     
+  <textarea name="remark" style='line-height:1.5;margin:2rpx 20rpx;width:94%;height:250rpx;font-size:30rpx;overflow:hidden' value="{{remark}}"> 
+  </textarea>
+ </view>
+ <view style='padding-left:22rpx;margin-bottom:30rpx;'>
+  <button style='box-shadow:  0px 1px 1px  #bfbfbf;color:333;background:#fff;font-weight:600;width:140rpx;font-size:30rpx;border-radius:50rpx;border:0;padding:0;float:left'  bindtap='backToMine'  >返回</button>
+  <button formType="submit" style='background:#1296db;color:#fff;width:500rpx;font-weight:600;border-radius:50rpx;font-size:30rpx;'>下一步</button>
+ </view>
+ </form>
+
+
+
+

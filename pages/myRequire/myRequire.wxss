@@ -1,0 +1,83 @@
+/* pages/myRequire/myRequire.wxss */
+pages{
+  width: 750rpx;
+  background: #fff;
+}
+
+.headtitle{
+  text-align: center;
+  font-weight: 800;
+  font-size: 40rpx;
+  color: #262626;
+} 
+/* color being stress */
+.stresscolor{
+  color: #1296db
+}
+/* main */
+.mainarea{
+  width: 100%;
+}
+.maintip{
+  width: 5rpx;
+  height: 42rpx;
+  background: #1296db;
+  float:left;
+  margin: 9rpx  18rpx 0 24rpx;
+
+
+}
+.maintitle{
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #262626
+}
+.mainword{
+  color: #4c4c4c;
+  font-size: 30rpx;
+}
+.mainbutton{
+  width: 86%;
+  border-radius:50rpx;
+  border: none;
+  color: white;
+  background-color: #1296db;
+  height: 70rpx; 
+  font-size: 30rpx;
+}
+.mainpadding{
+  padding: 20rpx 0;
+}
+.mainleft{
+  padding-left: 28rpx;
+}
+.mainupborder{
+  margin-top: 14rpx; 
+  border-top: 2rpx dotted #ededed;
+}
+.mainmargin{
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+}
+.mainmargin1{
+  margin-bottom: 30rpx;
+  margin-top: 30rpx;
+}
+/* hr */
+
+.place
+{
+  height: 15rpx;
+  width: 100%;
+  background: #ededed;
+  border-radius: 8rpx;
+}
+.margintitle{
+  margin: 20rpx;
+}
+.more{
+  text-align: center;
+  color: #bfbfbf;
+  font-size: 30rpx;
+  padding: 14rpx;
+}

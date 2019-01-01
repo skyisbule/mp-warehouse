@@ -1,0 +1,16 @@
+<!--pages/city/city.wxml-->
+<view style='margin-left:2%;width:750rpx;'>
+  <view class='labelword'>当前选择 \n</view>
+  <button class='tipType'>{{ nowCity }}</button>
+
+  <view class='labelword' style="margin-top:130rpx;">历史选择</view>
+    <view wx:for = '{{historyCitys}}'>
+       <button class='tipType' data-cityName = '{{item.cityName}}' bindtap='switchCity' >{{item.cityName}}</button>
+    </view>
+
+  <view class='labelword' style="margin-top:210rpx;">热门城市</view>
+    <view wx:for = '{{hotCitys}}'>
+       <button class='tipType' data-cityName = '{{item.cityName}}' bindtap='switchCity' >{{item.cityName}}</button>
+    </view>
+
+</view>

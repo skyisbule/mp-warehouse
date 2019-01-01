@@ -1,0 +1,179 @@
+<!--pages/warehouseUpload/warehouseUpload.wxml-->
+<view class="headTitle">录入仓库</view>
+<form bindsubmit="formSubmit" >
+
+  <view class="inputView">           
+    <label class="inputLab">仓库/厂房的区域</label>
+    <picker mode="region" bindchange='bindRegionChange'   >
+      <input class="inputText" placeholder="请选择城市" name='locates' disabled='disabled' value='{{region[0]}} {{region[1]}} {{region[2]}}'/>     
+    </picker>
+  </view>
+
+  <!-- <view class="inputView">
+
+    <view class="send-more-result-main" hidden="{{chooseFiles.length==0}}">
+      <block wx:for="{{chooseFiles}}" wx:for-index="idx">
+
+        <view class="file-box {{deleteIndex==idx?'deleting':''}}">
+          <view class="img-box">
+            <image src="{{item}}" mode="aspectFill" bindtap='previewImg'></image>
+            <icon class="remove-icon" type="cancel" size="23" color="#B2B2B2" catchtap="deleteImage" data-idx="{{idx}}" />
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="more-btn-item" catchtap="chooseImage" data-category="camera">
+      <view class="more-btn-main">
+        <image src="/images/camera.png"></image>
+      </view>
+    </view>
+  </view> -->
+
+  <view class="table" wx:for = '{{unitArray}}'>
+    <view class="tr bg-g">
+      <view class="th">选择楼层：</view>
+      <view class="th-2">
+        <picker mode="selector" range="{{floorArray}}" value="{{floorIndex}}" data-uid='{{item.uid}}' bindchange="floorPickerSelected" >
+          <input   name='floor' style='color:#1296db'  disabled='disabled'  placeholder="楼层" value="{{item.floor}}" data-uid='{{item.uid}}'/>  
+        </picker>     
+      </view>
+    </view>
+    <view class="tr borderbtm" >
+      <view class="td" >空间位置</view>
+      <view class="td-2">
+        <input  bindblur='addUnitArea' name='area' placeholder="例如：1000（平方米)" value='{{item.area}}' data-uid='{{item.uid}}' />   
+      </view>
+    </view>
+    <view class="tr borderbtm" >
+      <view class="td" >是否可分租</view>
+      <view class="td-2" >
+        <picker mode="selector" range="{{couldSubletArray}}" value="{{couldSubletIndex}}"  data-uid='{{item.uid}}' bindchange="couldSubletPickerSelected">
+          <input name='couldSublet' value="{{item.couldSublet}}" data-uid='{{item.uid}}' disabled='disabled'/>   
+        </picker>    
+      </view>
+    </view>
+    <view class="tr borderbtm" wx:if='{{item.isminSublet}}'>
+      <view class="td" >最小分租面积</view>
+      <view class="td-2">
+        <input bindblur='addUnitMinSubletArea' name='minSubletArea'   placeholder="例如：100（平方米)" value='{{item.minSubletArea}}' data-uid='{{item.uid}}' />  
+      </view>
+    </view>
+    <view class="tr borderbtm" >
+      <view class="td" >报价</view>
+      <view class="td-2">
+        <input bindblur='addUnitPrice' name='price' placeholder="1.1（元/月/平方米)" value='{{item.price}}' data-uid='{{item.uid}}' />   
+      </view>
+    </view>
+    <view class="tr" >
+      <view class="td" >配套设施</view>
+      <view class="td-2">
+        <checkbox-group name="checkbox" class="check"  data-uid='{{item.uid}}' >
+              <label style='border:1rpx solid #bfbfbf' bindtap='facilitysclicks' wx:for="{{item.facilitys}}" wx:key="{{item.facilitys}}"  data-index="{{index}}" class='{{item.checked?"is_checked":""}}' data-uid='{{item.uid}}' >
+                <checkbox value="{{item.name}}" data-val="{{item.name}}" hidden='false' checked='{{item.checked}}'  data-uid='{{item.uid}}'/> {{item.name}}
+              </label>
+
+        </checkbox-group> 
+      </view>
+    </view>
+  </view>
+
+    <!-- 要增加 -->
+
+  <view style='color:#1296db;text-align:center;font-size:26rpx;' bindtap = "addUnits" wx:if = '{{showAddButton}}' >+ 新增一个出租单元</view>
+  
+  <view class="table" bindtap="parkServicesShowDialogBtn">
+    <view class="tr" >
+      <view class="td" >园区配套&服务</view>
+      <view class="td-2">
+        <input name='parkService' disabled='disabled' value="{{parkService}}" disabled='disabled'/>   
+      </view>
+    </view>
+  </view>
+  <view class="table" bindtap="suitableForArrayShowDialogBtn">
+    <view class="tr" >
+      <view class="td" >适合行业</view>
+      <view class="td-2">
+        <input name='suitableFor' value="{{suitableFor}}" disabled='disabled'/>
+      </view>
+    </view>
+  </view>
+  <view class="table" bindtap="advantageArrayShowDialogBtn" >
+    <view class="tr" >
+      <view class="td" >优势</view>
+      <view class="td-2">
+        <input name='advantage'  value="{{advantage}}" disabled='disabled'/>  
+      </view>
+    </view>
+  </view>
+  <!-- <view class="table">
+    <view class="tr" >
+      <view class="td" >备注</view>
+      <view class="td-2">
+        <input name='remark'  placeholder="位置优势，园区优势等等"/> 
+      </view>
+    </view>
+  </view> -->
+   <view class="inputView" style='margin-bottom:100rpx;'>           
+  <label class="inputLab">备注</label>     
+  <textarea name="remark" style='line-height:1.5;margin:2rpx 20rpx;width:94%;height:250rpx;font-size:30rpx;overflow:hidden' value='{{remark}}'> 
+  </textarea>
+ </view>
+  <view style='padding-left:22rpx;margin-bottom:30rpx;'>
+    <button style='box-shadow:  0px 1px 1px  #bfbfbf;color:333;background:#fff;font-weight:600;width:140rpx;font-size:30rpx;border-radius:50rpx;border:0;padding:0;float:left'  bindtap='backToMine'  >返回</button>
+    <button formType="submit" style='background:#1296db;color:#fff;width:500rpx;font-weight:600;border-radius:50rpx;font-size:30rpx;'>下一步</button>
+  </view>
+ </form>
+
+ <!--园区配套&&服务 弹窗begin-->
+<view class="modal-mask" bindtap="parkServicesHideModal" catchtouchmove="preventTouchMove" wx:if="{{parkServicesShowModal}}"></view>
+<view class="modal-dialog" wx:if="{{parkServicesShowModal}}">
+  <view class='modal-content' >
+    <label class="inputLab">园区配套&服务</label>     
+      <checkbox-group name="checkbox" class="check model-text" bindchange="parkServicesChange">
+            <label style='border:1rpx solid #bfbfbf;margin:25rpx 10rpx;' bindtap='parkServicesclicks' wx:for="{{parkServices}}" wx:key="{{parkServices}}" wx:for-index="index" data-index="{{index}}" class='{{item.checked?"is_checked":""}}'>
+              <checkbox value="{{item.name}}" data-val="{{item.name}}" hidden='false' checked='{{item.checked}}' /> {{item.name}}
+            </label>
+      </checkbox-group> 
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="parkServicesOnCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="parkServicesOnConfirm" data-status="confirm">确定</view>
+  </view>
+</view>
+<!-- 园区配套服务end -->
+
+<!--适合行业 弹窗begin-->
+<view class="modal-mask" bindtap="suitableForArrayHideModal" catchtouchmove="preventTouchMove" wx:if="{{suitableForArrayShowModal}}"></view>
+<view class="modal-dialog" wx:if="{{suitableForArrayShowModal}}">
+  <view class='modal-content' >
+    <label class="inputLab">适合行业</label>     
+      <checkbox-group name="checkbox" class="check model-text" bindchange="suitableForArrayChange">
+            <label style='border:1rpx solid #bfbfbf;margin:25rpx 10rpx;' bindtap='suitableForArrayclicks' wx:for="{{suitableForArray}}" wx:key="{{suitableForArray}}" wx:for-index="index" data-index="{{index}}" class='{{item.checked?"is_checked":""}}'>
+              <checkbox value="{{item.name}}" data-val="{{item.name}}" hidden='false' checked='{{item.checked}}' /> {{item.name}}
+            </label>
+      </checkbox-group> 
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="suitableForArrayOnCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="suitableForArrayOnConfirm" data-status="confirm">确定</view>
+  </view>
+</view>
+<!-- 适合行业end -->
+
+<!--优势 弹窗begin-->
+<view class="modal-mask" bindtap="advantageArrayHideModal" catchtouchmove="preventTouchMove" wx:if="{{advantageArrayShowModal}}"></view>
+<view class="modal-dialog" wx:if="{{advantageArrayShowModal}}">
+  <view class='modal-content' >
+    <label class="inputLab">卖点优势</label>     
+      <checkbox-group name="checkbox" class="check model-text" bindchange="advantageArrayChange">
+            <label style='border:1rpx solid #bfbfbf;margin:25rpx 10rpx;' bindtap='advantageArrayclicks' wx:for="{{advantageArray}}" wx:key="{{advantageArray}}" wx:for-index="index" data-index="{{index}}" class='{{item.checked?"is_checked":""}}'>
+              <checkbox value="{{item.name}}" data-val="{{item.name}}" hidden='false' checked='{{item.checked}}' /> {{item.name}}
+            </label>
+      </checkbox-group> 
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="advantageArrayOnCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="advantageArrayOnConfirm" data-status="confirm">确定</view>
+  </view>
+</view>
+<!-- 优势--end -->

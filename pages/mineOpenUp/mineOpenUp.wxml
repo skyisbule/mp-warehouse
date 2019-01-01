@@ -1,0 +1,31 @@
+<!--pages/uploadConfirm/uploadConfirm.wxml-->
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权头像</button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    </block>
+  </view>
+<form bindsubmit="formSubmit">
+  <view class="login-from">
+    <view class="inputView">
+      <label class="loginLab">联系人姓名</label>
+      <input name="realName" class="inputText"  placeholder="请输入姓名" value='{{realName}}'/>
+    </view>
+ 
+    <view class="inputView">
+      <label class="loginLab">手机号码</label>
+      <input name="telNum" class="inputText"  placeholder="请输入手机号码"  value='{{telNum}}'/> 
+    </view>
+
+    <view class="inputView">
+      <label class="loginLab">您的公司名称</label>
+      <input name="company" class="inputText"  placeholder="请输入企业名称" value='{{company}}' />
+    </view>
+  </view>
+  <view style='padding-left:22rpx;margin-top:40rpx;margin-bottom:30rpx;'>
+    <button style='box-shadow:  0px 1px 1px  #bfbfbf;color:333;background:#fff;font-weight:600;width:140rpx;font-size:30rpx;border-radius:50rpx;border:0;padding:0;float:left' bindtap='backToUpload'>上一步</button>
+    <button formType="submit" style='background:#1296db;color:#fff;width:500rpx;font-weight:600;border-radius:50rpx;font-size:30rpx;'>确认信息</button>
+  </view>
+</form>
+ 
+

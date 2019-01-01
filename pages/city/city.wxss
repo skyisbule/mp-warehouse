@@ -1,0 +1,23 @@
+/* pages/city/city.wxss */
+page {
+  background: #f7f6f4;
+
+}
+.labelword{
+  width: 100%;
+  font-size: 28rpx;
+  color: #969494;
+  margin:30rpx 0; 
+}
+.tipType{
+  width: 25%;
+  float: left;
+  padding: 0rpx 36rpx;
+  background-color: #fff;
+  color: #333;
+  border-radius:0;
+  border: 1rpx solid #bfbfbf;
+  font-size: 26rpx;
+  margin-right:50rpx;
+  margin-bottom: 20rpx;  
+}

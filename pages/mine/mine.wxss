@@ -1,0 +1,46 @@
+/* pages/mine/mine.wxss */
+/* main */
+.mainarea{
+  width: 100%;
+}
+.maintip{
+  width: 5rpx;
+  height: 42rpx;
+  background: #1296db;
+  float:left;
+  margin: 9rpx  18rpx 0 24rpx;
+
+
+}
+.maintitle{
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #262626
+}
+.mainword{
+  color: #4c4c4c;
+  font-size: 24rpx;
+}
+.mainbutton{
+  border-radius:50rpx;
+  color: #1296db;
+  border:1px solid  #1296db;
+  background: #fff;
+  height: 55rpx; 
+  font-size: 22rpx;
+  margin-right:30rpx; 
+}
+.mainpadding{
+  padding: 30rpx 0;
+  width: 100%;
+}
+.fr{
+  float: right
+}
+.place
+{
+  height: 15rpx;
+  width: 100%;
+  background: #ededed;
+  border-radius: 8rpx;
+}

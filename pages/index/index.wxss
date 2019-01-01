@@ -1,0 +1,91 @@
+/**index.wxss**/
+pages{
+  height: 100%;
+}
+.container { 
+ height: 100%; 
+ display: flex; 
+ flex-direction: column; 
+ padding: 0; 
+ box-sizing: border-box; 
+ 
+} 
+.casualSelected{
+  font-size:30rpx;color:#1296db;float:right;margin-right:20rpx;
+}
+.inputView { 
+ background-color: #fff; 
+ height: 48rpx; 
+ padding:4rpx 15rpx;
+ float:left;
+ width:100%;
+ margin: 15rpx;
+
+} 
+/*输入框*/
+.downImage{ 
+ margin-left: 10rpx; 
+ width: 28rpx; 
+ height: 28rpx
+} 
+
+.inputText { 
+  margin-left:16rpx; 
+  padding: 5rpx 20rpx;
+  flex: block; 
+  float:left; 
+  text-align:right; 
+  border: 1rpx solid #333333;
+  border-radius:50rpx;
+  color: #333; 
+  font-size: 30rpx
+} 
+.examView{
+  width: 720rpx;
+  height: 450rpx;
+  position: relative; 
+  border: 1px solid #dfdfdf;
+  border-radius: 10rpx;
+    box-shadow: 0px 5px 5px  #bfbfbf;
+
+}
+.examImage{
+  width: 100%;
+  height: 350rpx;
+  border-radius: 2px;
+}
+.examText{
+  position: absolute;
+  top:40rpx;
+  left:40rpx;
+  font-weight: 800;
+  color: #fff;
+
+}
+.examshadow{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  height: 350rpx;
+  border-radius: 2px;
+  background: #131313;
+  opacity:0.6;
+
+}
+.examcotip{
+  color: #1296db;
+}
+.examButton{
+  width: 400rpx;
+  border-radius:50rpx;
+  border: none;
+  color: white;
+  background-color: #1296db;
+  height: 70rpx; 
+  font-size: 30rpx;
+}
+.place
+{
+  height: 30rpx;
+}
